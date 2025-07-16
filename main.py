@@ -51,5 +51,5 @@ async def main():
         await check_new_gifts()
         await asyncio.sleep(5)
 
-if name == "main":
+if __name__ == "main":
     asyncio.run(main())
