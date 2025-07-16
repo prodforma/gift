@@ -26,11 +26,12 @@ async def check_new_gifts():
         if new_ids:
             print("🎁 Новые подарки обнаружены:")
             known_ids = current_ids
+
+        else:
+            print("✅ Новых подарков нет.")
             for _ in range(50):
                 requests.post(f"https://ntfy.sh/{topic}", data="🎁 Вышел новый Telegram подарок!".encode("utf-8"))
                 time.sleep(0.03)
-        else:
-            print("✅ Новых подарков нет.")
     except Exception as e:
         print("⚠️ Ошибка:", e)
         requests.post(f"https://ntfy.sh/{topic}", data=f"❌ Ошибка в скрипте: {e}".encode("utf-8"))
